@@ -1,67 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Picture Puzzle</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="../google-blockly-82871b3/blockly_compressed.js"></script>
-    <script src="../google-blockly-82871b3/blocks_compressed.js"></script>
-    <script src="../google-blockly-82871b3/msg/js/en.js"></script>
-    <script src="../google-blockly-82871b3/javascript_compressed.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script> 
-    var timeleft = 60;
-var downloadTimer = setInterval(function(){
-  document.getElementById("progressBar").value = 60 - timeleft;
-  timeleft -= 1;
-  if(timeleft <= 0)
-    clearInterval(downloadTimer);
-}, 1000);
-    </script> 
-    
-  </head>
-  <body>
-    <div style="background: url(bg.jpg);background-position: center; background-repeat: no-repeat; background-size: cover;">
-    <h1>Picture Puzzle</h1>
-    <h2>Match each of the images with their names and country</h2>
-    <progress value="0" max="60" id="progressBar"></progress>
-    <div id="blocklyDiv" style="height: 480px; width: 1200px;" ></div>
-    <xml id="toolbox" style="display: none">        
-            <category name="Choose Blocks">
-                    <block type="image"></block>
-                    <block type="north_america"></block>
-                    <block type="asia"></block>
-                    <block type="austrialia"></block>
-                    <block type="africa"></block>
-                    <block type="africa_text"></block>
-                    <block type="asia_text"></block>
-                    <block type="austrialia_text"></block>
-                    <block type="northamerica_text"></block>
-                    <block type="mexico"></block>
-                    <block type="fiji"></block>
-                    <block type="nigeria"></block>
-                    <block type="japan"></block>
-                  </category>
-                  
-          </xml>
-      <button onclick="runJS()">Check Answers</button>
-    </div>
-  </body>
-  <script>
-    var workspace = Blockly.inject('blocklyDiv',
-        {toolbox: document.getElementById('toolbox')});
-  </script>
-    <script>
-        function runJS() {
-            Blockly.JavaScript.addReservedWords('code');
-            var code = Blockly.JavaScript.workspaceToCode();
-            alert(code);
-            
-        }
-        </script>
         <script>
             Blockly.Blocks['image'] = {
     init: function() {
@@ -342,4 +278,3 @@ Blockly.JavaScript['mexico'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
           </script>
-</html>
