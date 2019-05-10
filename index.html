@@ -28,42 +28,164 @@ var downloadTimer = setInterval(function(){
     <h1>Picture Puzzle</h1>
     <h2>Match each of the images with their names and country</h2>
     <progress value="0" max="60" id="progressBar"></progress>
-    <div id="blocklyDiv" style="height: 480px; width: 1200px;" ></div>
-    <xml id="toolbox" style="display: none">        
-            <category name="Choose Blocks">
-                    <block type="image"></block>
-                    <block type="north_america"></block>
-                    <block type="asia"></block>
-                    <block type="austrialia"></block>
-                    <block type="africa"></block>
-                    <block type="africa_text"></block>
-                    <block type="asia_text"></block>
-                    <block type="austrialia_text"></block>
-                    <block type="northamerica_text"></block>
-                    <block type="mexico"></block>
-                    <block type="fiji"></block>
-                    <block type="nigeria"></block>
-                    <block type="japan"></block>
-                  </category>
-                  
-          </xml>
+    <div id="blockly-div" style="height: 480px; width: 1200px;"></div>
+    <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display:none">
+        <block type="asia_txt"></block>
+        <block type="africa_txt"></block>
+        <block type="northamerica_txt"></block>
+        <block type="austrialia_txt"></block>
+        <block type="africa_img"></block>
+        <block type="asia_img"></block>
+        <block type="northamerica_img"></block>
+        <block type="austrialia_img"></block>
+        <block type="input1"></block>
+        <block type="input2"></block>
+        <block type="input3"></block>
+        <block type="input4"></block>
+
+    </xml>
       <button onclick="runJS()">Check Answers</button>
     </div>
   </body>
   <script>
-    var workspace = Blockly.inject('blocklyDiv',
-        {toolbox: document.getElementById('toolbox')});
-  </script>
-    <script>
-        function runJS() {
-            Blockly.JavaScript.addReservedWords('code');
-            var code = Blockly.JavaScript.workspaceToCode();
-            alert(code);
-            
-        }
-        </script>
-        <script>
-            Blockly.Blocks['image'] = {
+    /* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
+var toolbox = document.getElementById("toolbox");
+
+var options = { 
+	readOnly : true, 
+	css : true, 
+	media : 'https://blockly-demo.appspot.com/static/media/', 
+	rtl : false, 
+	scrollbars : false, 
+	sounds : true, 
+	oneBasedIndex : true
+};
+
+/* Inject your workspace */ 
+var workspace = Blockly.inject('blockly-div', {
+  media: '../../../media/',
+  toolbox: document.getElementById('toolbox'),
+  toolboxPosition: 'end',
+  horizontalLayout: true,
+  scrollbars: false
+});
+
+/* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
+
+//asia block
+Blockly.Blocks['asia_txt'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Asia");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(300, 100);
+  },
+};
+
+//africa block
+Blockly.Blocks['africa_txt'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Africa");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(500, 220);
+  }
+};
+
+//austrialia
+Blockly.Blocks['austrialia_txt'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Austrialia");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(1000, 400);
+  }
+};
+
+//North America
+Blockly.Blocks['northamerica_txt'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("North America");
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(800, 200);
+  }
+};
+
+//africa image
+Blockly.Blocks['africa_img'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("./africa.png", 100, 100, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(800, 300);
+  }
+};
+
+//asia image
+Blockly.Blocks['asia_img'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("./asia.png", 100, 100, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(50, 250);
+  }
+};
+
+//austrialia image
+Blockly.Blocks['austrialia_img'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("./austrialia.png", 100, 100, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(100, 100);
+  }
+};
+
+//north america image
+Blockly.Blocks['northamerica_img'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldImage("./north-america.png", 100, 100, "*"));
+    this.setInputsInline(false);
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+ this.moveBy(900, 60);
+  }
+};
+
+//input
+Blockly.Blocks['input1'] = {
     init: function() {
         this.appendValueInput("Image")
             .setCheck("String")
@@ -72,274 +194,71 @@ var downloadTimer = setInterval(function(){
         this.appendValueInput("Name")
             .setCheck("String")
             .appendField("Name:");
-        this.appendValueInput("Country")
-            .setCheck(null)
-            .appendField("Country");
         this.setOutput(true, null);
         this.setColour(230);
     this.setTooltip("");
     this.setHelpUrl("");
+    this.moveBy(600, 350);
     }
     };
 
-    Blockly.JavaScript['image'] = function(block) {
-  var value_image = Blockly.JavaScript.valueToCode(block, 'Image', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_country = Blockly.JavaScript.valueToCode(block, 'Country', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'Your answers are correct!';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-    </script>
-
-    <script>
-          
-          Blockly.Blocks['north_america'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("north-america.png", 100, 100, "*"));
-    this.setOutput(true, null);
-    this.setColour(330);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['north_america'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.Blocks['asia'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("asia.png", 100, 100, "*"));
-    this.setOutput(true, null);
-    this.setColour(260);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['asia'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.Blocks['austrialia'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("austrialia.png", 100, 100, "*"));
-    this.setOutput(true, null);
-    this.setColour(260);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['austrialia'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.Blocks['africa'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldImage("africa.png", 100, 100, "*"));
-    this.setOutput(true, null);
-    this.setColour(260);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['africa'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-//Africa text
-
-Blockly.Blocks['africa_text'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Africa");
-    this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['africa_text'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-//Asia text
-
-
-Blockly.Blocks['asia_text'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Asia");
-    this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['asia_text'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-//north america text
-
-
-Blockly.Blocks['northamerica_text'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("North America");
-    this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['northamerica_text'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'North America is correct!';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-//austriali text
-
-Blockly.Blocks['austrialia_text'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Austrialia");
-    this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['austrialia_text'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-//africa countries
-
-//Nigeria
-
-Blockly.Blocks['nigeria'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Nigeria");
+    Blockly.Blocks['input2'] = {
+    init: function() {
+        this.appendValueInput("Image")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Image");
+        this.appendValueInput("Name")
+            .setCheck("String")
+            .appendField("Name:");
         this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+        this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+    this.moveBy(500, 80);
+    }
+    };
 
-Blockly.JavaScript['nigeria'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-
-
-//Asia countries
-
-//Japan
-
-Blockly.Blocks['japan'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Japan");
+    Blockly.Blocks['input3'] = {
+    init: function() {
+        this.appendValueInput("Image")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Image");
+        this.appendValueInput("Name")
+            .setCheck("String")
+            .appendField("Name:");
         this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+        this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+    this.moveBy(300, 220);
+    }
+    };
 
-Blockly.JavaScript['japan'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];;
-};
-
-
-//countries in austrialia
-
-//fiji
-
-Blockly.Blocks['fiji'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Fiji");
+    Blockly.Blocks['input4'] = {
+    init: function() {
+        this.appendValueInput("Image")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_CENTRE)
+            .appendField("Image");
+        this.appendValueInput("Name")
+            .setCheck("String")
+            .appendField("Name:");
         this.setOutput(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+        this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+    this.moveBy(250, 360);
+    }
+    };
 
-Blockly.JavaScript['fiji'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
+/* TODO: Change workspace blocks XML ID if necessary. Can export workspace blocks XML from Workspace Factory. */
+var workspaceBlocks = document.getElementById("workspaceBlocks"); 
 
-//counties in north america
+/* Load blocks to workspace. */
+Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+  
+  </script>
 
-//Mexico
-
-Blockly.Blocks['mexico'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Mexico");
-        this.setOutput(true, null);
-
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['mexico'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-          </script>
 </html>
