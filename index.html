@@ -44,7 +44,7 @@ var downloadTimer = setInterval(function(){
         <block type="input4"></block>
 
     </xml>
-      <button onclick="runJS()">Check Answers</button>
+    <button onclick="showCode()">show JavaScript</button>
     </div>
   </body>
   <script>
@@ -85,6 +85,13 @@ Blockly.Blocks['asia_txt'] = {
  this.moveBy(300, 100);
   },
 };
+Blockly.JavaScript['asia_txt'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //africa block
 Blockly.Blocks['africa_txt'] = {
@@ -99,6 +106,13 @@ Blockly.Blocks['africa_txt'] = {
  this.moveBy(500, 220);
   }
 };
+Blockly.JavaScript['africa_txt'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //austrialia
 Blockly.Blocks['austrialia_txt'] = {
@@ -113,6 +127,13 @@ Blockly.Blocks['austrialia_txt'] = {
  this.moveBy(1000, 400);
   }
 };
+Blockly.JavaScript['austrialia_txt'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //North America
 Blockly.Blocks['northamerica_txt'] = {
@@ -127,6 +148,13 @@ Blockly.Blocks['northamerica_txt'] = {
  this.moveBy(800, 200);
   }
 };
+Blockly.JavaScript['northamerica_txt'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 
 //africa image
 Blockly.Blocks['africa_img'] = {
@@ -141,6 +169,12 @@ Blockly.Blocks['africa_img'] = {
  this.moveBy(800, 300);
   }
 };
+Blockly.JavaScript['africa_img'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
 
 //asia image
 Blockly.Blocks['asia_img'] = {
@@ -155,6 +189,12 @@ Blockly.Blocks['asia_img'] = {
  this.moveBy(50, 250);
   }
 };
+Blockly.JavaScript['asia_img'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
 
 //austrialia image
 Blockly.Blocks['austrialia_img'] = {
@@ -168,6 +208,11 @@ Blockly.Blocks['austrialia_img'] = {
  this.setHelpUrl("");
  this.moveBy(100, 100);
   }
+};
+Blockly.JavaScript['austrialia_img'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
 };
 
 //north america image
@@ -183,75 +228,113 @@ Blockly.Blocks['northamerica_img'] = {
  this.moveBy(900, 60);
   }
 };
+Blockly.JavaScript['northamerica_img'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
 //input
 Blockly.Blocks['input1'] = {
-    init: function() {
-        this.appendValueInput("Image")
-            .setCheck("String")
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Image");
-        this.appendValueInput("Name")
-            .setCheck("String")
-            .appendField("Name:");
-        this.setOutput(true, null);
-        this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-    this.moveBy(600, 350);
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Africa");
+    this.appendValueInput("image")
+        .setCheck(null)
+        .appendField("Image");
+    this.appendValueInput("name")
+        .setCheck(null)
+        .appendField("name");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+     this.moveBy(600, 350);
     }
     };
+    //run javascript
+Blockly.JavaScript['input1'] = function(block) {
+  var value_image = Blockly.JavaScript.valueToCode(block, 'Image', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
     Blockly.Blocks['input2'] = {
-    init: function() {
-        this.appendValueInput("Image")
-            .setCheck("String")
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Image");
-        this.appendValueInput("Name")
-            .setCheck("String")
-            .appendField("Name:");
-        this.setOutput(true, null);
-        this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-    this.moveBy(500, 80);
+      init: function() {
+    this.appendDummyInput()
+        .appendField("Asia");
+    this.appendValueInput("image")
+        .setCheck(null)
+        .appendField("Image");
+    this.appendValueInput("name")
+        .setCheck(null)
+        .appendField("name");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+     this.moveBy(500, 80);
     }
     };
+    //run javascript
+Blockly.JavaScript['input2'] = function(block) {
+  var value_image = Blockly.JavaScript.valueToCode(block, 'Image', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
     Blockly.Blocks['input3'] = {
-    init: function() {
-        this.appendValueInput("Image")
-            .setCheck("String")
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Image");
-        this.appendValueInput("Name")
-            .setCheck("String")
-            .appendField("Name:");
-        this.setOutput(true, null);
-        this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-    this.moveBy(300, 220);
+      init: function() {
+    this.appendDummyInput()
+        .appendField("Austrialia");
+    this.appendValueInput("image")
+        .setCheck(null)
+        .appendField("Image");
+    this.appendValueInput("name")
+        .setCheck(null)
+        .appendField("name");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+     this.moveBy(300, 220);
     }
     };
+    //run javascript
+Blockly.JavaScript['input3'] = function(block) {
+  var value_image = Blockly.JavaScript.valueToCode(block, 'Image', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
 
     Blockly.Blocks['input4'] = {
-    init: function() {
-        this.appendValueInput("Image")
-            .setCheck("String")
-            .setAlign(Blockly.ALIGN_CENTRE)
-            .appendField("Image");
-        this.appendValueInput("Name")
-            .setCheck("String")
-            .appendField("Name:");
-        this.setOutput(true, null);
-        this.setColour(230);
-    this.setTooltip("");
-    this.setHelpUrl("");
-    this.moveBy(250, 360);
+      init: function() {
+    this.appendDummyInput()
+        .appendField("North America");
+    this.appendValueInput("image")
+        .setCheck(null)
+        .appendField("Image");
+    this.appendValueInput("name")
+        .setCheck(null)
+        .appendField("name");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+     this.moveBy(250, 360);
     }
     };
+    //run javascript
+Blockly.JavaScript['input4'] = function(block) {
+  var value_image = Blockly.JavaScript.valueToCode(block, 'Image', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
 
 /* TODO: Change workspace blocks XML ID if necessary. Can export workspace blocks XML from Workspace Factory. */
 var workspaceBlocks = document.getElementById("workspaceBlocks"); 
@@ -260,5 +343,30 @@ var workspaceBlocks = document.getElementById("workspaceBlocks");
 Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
   
   </script>
+
+<script>
+
+  
+  // Generate JavaScript code and display it.
+  function showCode() {
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    alert(code);
+  }
+
+  // Generate JavaScript code and run it.
+  function runCode() {
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+    try {
+      eval(code);
+    } catch (e) {
+      alert(e);
+    }
+  }
+</script>
 
 </html>
