@@ -13,9 +13,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script> 
-    var timeleft = 30;
+    var timeleft = 60;
 var downloadTimer = setInterval(function(){
-  document.getElementById("progressBar").value = 30 - timeleft;
+  document.getElementById("progressBar").value = 60 - timeleft;
   timeleft -= 1;
   if(timeleft <= 0)
     clearInterval(downloadTimer);
@@ -27,7 +27,7 @@ var downloadTimer = setInterval(function(){
     <div style="background: url(bg.jpg);">
     <h1>Picture Puzzle</h1>
     <h2>Match each of the images with their names and country</h2>
-    <progress value="0" max="30" id="progressBar"></progress>
+    <progress value="0" max="60" id="progressBar"></progress>
     <div id="blocklyDiv" style="height: 480px; width: 1200px; background: url(bg.jpg);" ></div>
     <xml id="toolbox" style="display: none">        
             <category name="Choose Blocks">
@@ -91,7 +91,7 @@ var downloadTimer = setInterval(function(){
   var value_name = Blockly.JavaScript.valueToCode(block, 'Name', Blockly.JavaScript.ORDER_ATOMIC);
   var value_country = Blockly.JavaScript.valueToCode(block, 'Country', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'Your answers are correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -229,7 +229,7 @@ Blockly.Blocks['northamerica_text'] = {
 
 Blockly.JavaScript['northamerica_text'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'North America is correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -249,7 +249,7 @@ Blockly.Blocks['austrialia_text'] = {
 
 Blockly.JavaScript['austrialia_text'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'Austrialia is correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -271,7 +271,7 @@ Blockly.Blocks['nigeria'] = {
 
 Blockly.JavaScript['nigeria'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'Africa is correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -295,7 +295,7 @@ Blockly.Blocks['japan'] = {
 
 Blockly.JavaScript['japan'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'Asia is Correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];;
 };
@@ -318,7 +318,7 @@ Blockly.Blocks['fiji'] = {
 
 Blockly.JavaScript['fiji'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'Ausrialia is correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -341,7 +341,7 @@ Blockly.Blocks['mexico'] = {
 
 Blockly.JavaScript['mexico'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+  var code = 'North America is correct!';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
