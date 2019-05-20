@@ -252,7 +252,6 @@ Blockly.Blocks['africa'] = {
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
-      this.moveBy(600, 350);
   }
 };
     //run javascript
@@ -260,18 +259,10 @@ Blockly.Blocks['africa'] = {
   var value_name = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_ATOMIC);
   var value_image = Blockly.JavaScript.valueToCode(block, 'image', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-
-  if (!value_name == 'Africa') {
-    var code = 'correct!'
-    // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-  } else {
-    var code = 'Wrong!'
-    // TODO: Change ORDER_NONE to the correct strength.
+  var code = value_name + value_image
+  // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
-  }
-  
 
 Blockly.Blocks['asia'] = {
   init: function() {
@@ -285,7 +276,6 @@ Blockly.Blocks['asia'] = {
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
- this.moveBy(500, 80);
   }
 };
     //run javascript
@@ -311,8 +301,6 @@ Blockly.Blocks['northamerica'] = {
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
- this.moveBy(300, 220);
-
   }
 };
     //run javascript
@@ -337,8 +325,6 @@ Blockly.Blocks['austrialia'] = {
     this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
- this.moveBy(250, 360);
-
   }
 };
     //run javascript
